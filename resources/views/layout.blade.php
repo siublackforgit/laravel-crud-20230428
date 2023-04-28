@@ -8,7 +8,8 @@
     <title>@yield('title','Rick Laravel Project')</title>
 </head>
 <body>
-    @include('components.navbar');
+    @include('components.navbar')
+    @yield('content')
     
 </body>
 </html>
