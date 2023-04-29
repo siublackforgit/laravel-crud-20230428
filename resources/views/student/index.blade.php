@@ -13,9 +13,23 @@
                     <th>Delete</th>
                 </tr>
                 @foreach ($student as $item)
-                    <tr>{{$item->name}}</tr>
-                    <tr>{{$item->address}}</tr>
-                    <tr>{{$item->age}}</tr>
+                 <tr>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->address}}</td>
+                    <td>{{$item->age}}</td>
+                    <td>
+                        <form action="{{url('student/'.$item->id."/edit")}}" method="GET">
+                            <input type="submit" value="Edit" class="btn btn-success">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{url('student/'.$item->id)}}" method="POST">
+                            @csrf
+                            @method("Delete");
+                            <input type="submit" value="Delete" class="btn btn-success">
+                        </form>
+                    </td>                   
+                 </tr>
                     
                 @endforeach
             </table>

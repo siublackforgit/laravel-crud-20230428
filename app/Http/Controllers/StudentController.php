@@ -47,7 +47,8 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $student=Student::find($id);
+        return view ('student.edit')->with('student',$student);
     }
 
     /**
@@ -55,7 +56,11 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request=$request->all();
+        $student=Student::find($id);
+        $student->update($request);
+        $student=Student::all();
+        return view('student.index')->with('student',$student);
     }
 
     /**
@@ -63,6 +68,9 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        Student::destroy($id);
+        $student=Student::all();
+        return redirect('student')->with('student',$student);
     }
 }
