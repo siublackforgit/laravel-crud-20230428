@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,13 @@ use App\Http\Controllers\StudentController;
 */
 
 Route::resource('student',StudentController::class);
+
+Route::get('registration',[AuthController::class,'registration'])->name('registration');
+
+Route::post('registration',[AuthController::class,'registrationPost'])->name('registration.post');
+
+Route::get('/login',[AuthController::class,'login']
+)->name('login');
 
 Route::get('/', function () {
     return view('welcome');
