@@ -4,6 +4,27 @@
     <div class="card">
         <div class="card-header">Register here</div>
         <div class="card-body">
+            <div class="mt-5">
+                @if($errors->any())
+                    <div class="col-12">
+                        @foreach($errors->all() as $error)
+                            <div class="alert alert-danger">{{$error}}</div>
+                        @endforeach
+                    </div>
+                @endif
+                @if (session()->has('error'))
+                    <div class="alert alert-danger">{{session('error')}}</div>
+                
+                @endif
+
+                @if (session()->has('succeed'))
+                    <div class="alert alert-danger">{{session('succeed')}}</div>
+                
+                    
+                @endif
+               
+            </div>
+    
             <form action="{{route('registration.post')}}" method="POST">
                 @csrf
                 <label for="">Input Your Name</label>
