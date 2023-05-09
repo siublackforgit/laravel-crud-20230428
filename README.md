@@ -1,5 +1,5 @@
-Hello, to every one who is interested, this is crud project made by Ricky Yeung.
-Project finished data : 20230428
+<p>Hello, to every one who is interested, this is crud project made by Ricky Yeung.</p>
+<p>Project finished data : 20230428</p>
 Project frontend langauge : laravel blade
 Project backend langauge : laravel
 Database: mysql
